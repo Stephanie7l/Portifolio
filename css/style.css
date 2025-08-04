@@ -1,58 +1,225 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contato | Stéphanie Barbosa</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <header>
-    <nav class="navbar">
-      <h1 class="logo">Stéphanie Barbosa</h1>
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f8fc;
+  color: #003366;
+  transition: background-color 0.3s, color 0.3s;
+}
 
-  <main>
-    <section class="intro">
-      <h2>Contato</h2>
-      <p>Entre em contato comigo pelos canais abaixo ou envie uma mensagem pelo formulário.</p>
+.navbar {
+  background-color: #003366;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
 
-      <ul class="contact-info">
-        <li>Email: <a href="mailto:stephanie@email.com">stephanie@email.com</a></li>
-        <li>LinkedIn: <a href="https://linkedin.com/in/stephaniebarbosa" target="_blank">/stephaniebarbosa</a></li>
-        <li>GitHub: <a href="https://github.com/stephaniebarbosa" target="_blank">/stephaniebarbosa</a></li>
-      </ul>
+.logo {
+  color: #ffffff;
+  font-size: 1.5rem;
+  z-index: 2;
+  transition: transform 0.3s;
+}
 
-      <form class="contact-form">
-        <input type="text" name="nome" placeholder="Seu nome" required>
-        <input type="email" name="email" placeholder="Seu e-mail" required>
-        <textarea name="mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
-  </main>
+.logo:hover {
+  transform: scale(1.05);
+}
 
-  <footer>
-    <p>&copy; 2025 Stéphanie Barbosa</p>
-  </footer>
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 2;
+}
 
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  </script>
-</body>
-</html>
+.menu-toggle span {
+  background: #ffffff;
+  height: 3px;
+  width: 25px;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.3s, color 0.3s;
+  display: inline-block;
+}
+
+.nav-links a:hover {
+  color: #66b2ff;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #003366;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .nav-links.active {
+    max-height: 300px;
+    padding: 1rem 0;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+}
+
+.intro {
+  text-align: center;
+  padding: 4rem 2rem;
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.project-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 300px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+  margin-top: 0;
+}
+
+.project-card a {
+  color: #003366;
+  text-decoration: underline;
+}
+
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.contact-info li {
+  margin: 0.5rem 0;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 2rem auto;
+  animation: fadeInUp 1s ease;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #003366;
+  outline: none;
+}
+
+.contact-form button {
+  padding: 0.75rem;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.contact-form button:hover {
+  background-color: #00509e;
+  transform: scale(1.05);
+}
+
+footer {
+  background-color: #003366;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  .navbar,
+  .nav-links,
+  .menu-toggle span {
+    background-color: #1e1e1e;
+  }
+
+  .project-card {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    background-color: #2c2c2c;
+    color: #fff;
+    border-color: #555;
+  }
+
+  .contact-form button {
+    background-color: #1565c0;
+  }
+
+  .contact-form button:hover {
+    background-color: #1e88e5;
+  }
+}
