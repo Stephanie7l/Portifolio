@@ -90,5 +90,5 @@ function enviarWhatsApp(e) {
     const mensagem = document.getElementById("mensagem").value;
 
     const texto = `Olá, meu nome é ${nome}. Orçamento para: ${servico}.\n\nDetalhes: ${mensagem}`;
-    window.open(`https://wa.me/5531985499733?text=${encodeURIComponent(texto)}`, "_blank");
+    window.open(`https://wa.me/5531995498575?text=${encodeURIComponent(texto)}`, "_blank");
 }
